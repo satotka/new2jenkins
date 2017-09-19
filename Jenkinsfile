@@ -24,6 +24,17 @@ pipeline {
                 //sh 'echo "Fail!"; exit 1'
             }
         }
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
+
+        stage('Deploy - Production') {
+            steps {
+                sh 'echo "deploy production"'
+            }
+        }
     }
     post {
         always {
